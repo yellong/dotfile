@@ -4,13 +4,19 @@ set encoding=utf8
 
 set ruler "开启右下角光标位置显示
 set wildmenu "在输入命令时列出匹配项目
-set scrolloff=5 "设定光标离窗口上下边界 5 行时窗口自动滚动
+set scrolloff=10 "设定光标离窗口上下边界 10 行时窗口自动滚动
 set autoread "文件在Vim之外修改过，自动重新读入
 set ai "自动缩进
 set si "智能缩进
 set history=1000
 set magic
 set showcmd
+set whichwrap=b,s,<,>,[,]
+set background=dark
+colorscheme solarized
+
+set noimdisable
+autocmd! InsertLeave * set imdisable|set iminsert=0
 
 let g:airline_powerline_fonts = 1
 
@@ -51,7 +57,7 @@ set cursorline
 if has("gui_running")
   set bs=2
   set ruler
-  set gfn=Monaco:h16
+  set gfn=Monaco\ for\ Powerline:h16
 endif
 
 let mapleader= ","
@@ -76,7 +82,7 @@ let g:sparkupNextMapping= "<c-m>"
 Bundle 'tpope/vim-rails.git'
 
 " vim rails syntax complete, try ctrl+x ctrl+u
-set completefunc=syntaxcomplete#Complete
+" set completefunc=syntaxcomplete#Complete
 
 " quickly comment your code, try ,cc on selected line
 Bundle 'vim-scripts/The-NERD-Commenter'
@@ -124,18 +130,10 @@ set iskeyword+=-
 " vim 7.4 backspace fix
 set backspace=indent,eol,start
 
-Bundle 'mileszs/ack.vim'
 Bundle 'Raimondi/delimitMate'
 
-" ########################################################
-" snippets for various programming languages 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-" Optional:
-Plugin 'honza/vim-snippets'
-" ########################################################
 Plugin 'Shougo/neocomplcache.vim'
+let g:neocomplcache_enable_at_startup = 1
 
-Bundle 'henrik/vim-yaml-flattener'
 Bundle 'bling/vim-airline'
+Plugin 'rking/ag.vim'
